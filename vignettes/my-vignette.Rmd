@@ -1,5 +1,5 @@
 ---
-title: "my-vignette"
+title: "Tutorial"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{my-vignette}
@@ -14,9 +14,59 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+To use the function `hw3_lm` in the package:
+
+```{r}
 library(hw3.625)
+# Load the data containing the variables in the model
+data("mtcars")
 ```
+
+```{r}
+# Fit the linear regression model
+model_hw3 <- hw3_lm(mpg ~ wt + hp + cyl, data = mtcars)
+print(model_hw3)
+```
+
+## **Comparison Against Original lm() Function**
+
+### **Correctness**
+
+In order to compare the correctness of my function, we also need to fit another linear regression model using the lm() function.
+```{r}
+# Fit another linear regression model using lm()
+model_lm <- lm(mpg ~ wt + hp + cyl, data = mtcars)
+summary(model_lm)
+```
+
+Check coefficients
+```{r}
+coef_hw3 <- model_hw3$coefficients[, "Estimate"]
+coef_lm <- summary(model_lm)$coefficients[, "Estimate"]
+all.equal(coef_hw3, coef_lm)
+```
+
+Check residuals
+```{r}
+resid_hw3 <- unname(model_hw3$residuals)
+resid_lm <- unname(resid(model_lm))
+all.equal(resid_hw3, resid_lm)
+```
+
+Check R-squared
+```{r}
+r2_hw3 <- model_hw3$m_r2
+r2_lm <- summary(model_lm)$r.squared
+all.equal(r2_hw3, r2_lm)
+```
+
+To check the correctness of the `hw_lm` function, only coefficients, residuals, and multiple R-squared are being tested. 
+
+### **Efficiency**
+
+
+
+
 
 
 
