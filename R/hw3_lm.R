@@ -1,20 +1,18 @@
-#'hw3_lm
+#' hw3_lm
 #'
-#'Fitting Linear Models
+#' Fitting Linear Models
 #'
-#'@param formula an object of class "formula": a symbolic description of the model to be fitted
-#'@param data an data frame containing the variables in the model.
+#' @param formula an object of class "formula": a symbolic description of the model to be fitted
+#' @param data an data frame containing the variables in the model.
 #'
-#'@return coefficients
-#'@return residuals
-#'@return fitted.values
+#' @return coefficients
+#' @return residuals
+#' @return fitted.values
 #'
-#'@examples
-#'hw3_lm(y~x1+x2,test_data)
+#' @examples
+#' hw3_lm(y~x1+x2,test_data)
 #'
-#'@export
-#'
-
+#' @export
 hw3_lm <- function(formula, data){
   # Identify the name of response variable
   response_var <- all.vars(formula)[attr(terms(formula), "response")]
@@ -52,8 +50,8 @@ hw3_lm <- function(formula, data){
 
   # Final Residuals
   final_resid <- c(Min = min_resid, `1Q` = oneq_resid,
-                       Median = med_resid, `3Q` = threeq_resid,
-                       Max = max_resid)
+                   Median = med_resid, `3Q` = threeq_resid,
+                   Max = max_resid)
 
   # Final coefficients
   final_coef <- cbind(Estimate = c(bhat), `Std.Err` = se,
@@ -73,6 +71,14 @@ hw3_lm <- function(formula, data){
   return(model)
 }
 
+#' print.hw3_lm
+#'
+#' Prints a summary of the hw3_lm object
+#'
+#' @param x An object of class "hw3_lm".
+#' @param ... Additional arguments passed to the print function.
+#'
+#' @export
 print.hw3_lm <- function(x, ...) {
   cat("Call:\n")
   print(x$call)
@@ -86,4 +92,3 @@ print.hw3_lm <- function(x, ...) {
   cat("\nResidual standard error:", format(x$residual_se, digits = 4),
       "on", x$df, "degrees of freedom\n")
 }
-
