@@ -1,16 +1,17 @@
-#' hw3_lm
-#'
 #' Fitting Linear Models
+#'
+#' hw3_lm is used to fit linear regression model and return a summary table including the coefficients, residuals, and R-squared of the model.
 #'
 #' @param formula an object of class "formula": a symbolic description of the model to be fitted
 #' @param data an data frame containing the variables in the model.
 #'
-#' @return coefficients
-#' @return residuals
-#' @return fitted.values
+#' @return coefficients a named vector of coefficients
+#' @return residuals the residuals
+#' @return fitted.values the fitted mean values
+#' @return call the matched call
 #'
 #' @examples
-#' hw3_lm(y~x1+x2,test_data)
+#' hw3_lm(mpg ~ wt + hp + cyl, data = mtcars)
 #'
 #' @export
 hw3_lm <- function(formula, data){

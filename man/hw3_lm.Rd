@@ -2,7 +2,7 @@
 % Please edit documentation in R/hw3_lm.R
 \name{hw3_lm}
 \alias{hw3_lm}
-\title{hw3_lm}
+\title{Fitting Linear Models}
 \usage{
 hw3_lm(formula, data)
 }
@@ -12,16 +12,18 @@ hw3_lm(formula, data)
 \item{data}{an data frame containing the variables in the model.}
 }
 \value{
-coefficients
+coefficients a named vector of coefficients
 
-residuals
+residuals the residuals
 
-fitted.values
+fitted.values the fitted mean values
+
+call the matched call
 }
 \description{
-Fitting Linear Models
+hw3_lm is used to fit linear regression model and return a summary table including the coefficients, residuals, and R-squared of the model.
 }
 \examples{
-hw3_lm(y~x1+x2,test_data)
+hw3_lm(mpg ~ wt + hp + cyl, data = mtcars)
 
 }
