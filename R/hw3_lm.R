@@ -110,5 +110,4 @@ print.hw3_lm <- function(x, ...) {
 
   cat("\nF-statistic:", format(x$fstat, digits = 4), "on",
       ncol(x$coefficients) - 1, "and", x$df,
-      "DF,  p-value:", format(x$f_p_val, digits = 4), "\n")
-}
+      "DF,  p-value:", format(x$f_p_val, digits = 4), "\n")}
