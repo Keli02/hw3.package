@@ -25,5 +25,6 @@ hw3_lm(formula, data)
 }
 \examples{
 hw3_lm(mpg ~ wt + hp + cyl, data = mtcars)
+hw3_lm(mpg ~ wt + hp * cyl, data = mtcars)
 
 }
