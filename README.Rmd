@@ -1,0 +1,17 @@
+# hw3.625 Package
+
+## Overview
+`hw3.625` is an R package designed to fit linear regression models and provide detailed summaries of the model's coefficients, residuals, and R-squared values. This package aims to offer a user-friendly interface for performing linear regression analysis, similar to the `lm()` function. 
+
+## Installation
+```{r}
+devtools::install_github("Keli02/hw3.package", build_vignettes = T)
+```
+
+## Usage
+```{r}
+library(hw3.625)
+model <- hw3_lm(mpg ~ wt + hp * cyl, data = mtcars)
+print(model)
+```
+

@@ -12,16 +12,16 @@ hw3_lm(formula, data)
 \item{data}{an data frame containing the variables in the model.}
 }
 \value{
-coefficients a named vector of coefficients
+\item{coefficients}{a named vector of coefficients.}
 
-residuals the residuals
+\item{residuals}{the residuals.}
 
-fitted.values the fitted mean values
+\item{fitted.values}{the fitted mean values.}
 
-call the matched call
+\item{call}{the matched call.}
 }
 \description{
-hw3_lm is used to fit linear regression model and return a summary table including the coefficients, residuals, and R-squared of the model.
+\code{hw3_lm} is used to fit linear regression model and return a summary table including the coefficients, residuals, and R-squared of the model.
 }
 \examples{
 hw3_lm(mpg ~ wt + hp + cyl, data = mtcars)
